@@ -14,6 +14,7 @@ class Node:
         child.parent = self
         self.children.append(child)
 
+    # This is a helper function to give us a userfriendly path to the file
     def path(self):
         path = []
         to_visit = [self]
