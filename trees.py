@@ -9,6 +9,7 @@ class Node:
     def __repr__(self):
         return self.data
 
+    # Add a child node to a node
     def add_children(self, child):
         child.parent = self
         self.children.append(child)
@@ -24,15 +25,16 @@ class Node:
 
             if current_node.parent is not None:
                 to_visit.append(current_node.parent)
-
-
-
+        # Returns a file path
+        # e.g. "/Users/naudo/Movies/movie3.mp4"
+        # Slice a duplicate / off of the beginning
         return "/".join(path)[1:]
 
 class Tree:
     def __init__(self, root_node):
         self.root = root_node
 
+    # Search all of the nodes to find something, otherwise return None
     def find(self, data):
         to_visit = [root]
         while(len(to_visit) != 0):
@@ -42,7 +44,7 @@ class Tree:
 
             if len(current_node.children) != 0:
                 to_visit = to_visit + current_node.children
-
+    # Walk the tree to print out a heirarchy of nodes
     def output(self):
         to_visit = [root]
         while(len(to_visit) != 0):
@@ -57,7 +59,7 @@ class Tree:
 
 
 
-
+print "Creating a tree and populating it"
 root = Node('/')
 tree = Tree(root)
 
